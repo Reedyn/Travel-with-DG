@@ -13,8 +13,16 @@ body {
     min-height: 100%;
     font-family: "Open Sans";
     font-size: 16px;
-    line-height: 22px;
+    line-height: 24px;
     color: #222;
+}
+
+.clear-block {
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
 }
 
 header.main-header {
@@ -35,10 +43,11 @@ main.main {
     ANCHOR TAGS
 ====================== */
 
-a {
+a,
+a:visited {
     color: @color-primary;
     text-decoration: none;
-
+    
     &:hover {
         text-decoration: underline;
     }
@@ -58,6 +67,14 @@ h4,
 h5,
 h6 {
     line-height: 1.1em;
+    color: #000;
+    margin-bottom: 0.6em;
+    font-weight: 700;
+    
+    a,
+    a:visited {
+        color: inherit;
+    }
 }
 
 h1 {}
@@ -162,22 +179,23 @@ h6 {}
 .post {
     margin-bottom: 6em;
 
-    &:after {
-        content: "";
-        clear: both;
-        display: block;
-    }
-
-    h2 {
-        font-weight: 600;
-    }
+    .clear-block;
 
     .content {
+        
+        & > img {
+            max-width: 110%;
+            height: auto;
+            position: relative;
+            left: -5%;
+            margin: 1.5em 0 1em 0;
+        }
+        
     }
 
     .byline {
         clear: both;
-        margin-top: 2em;    
+        margin-top: 2.5em;    
         
         &:after {
             clear: both;
@@ -200,7 +218,6 @@ h6 {}
             line-height: 18px;
             padding: 2px 0;
 
-
             .author-name {
                 font-weight: 700;
                 font-size: .9em;
@@ -220,6 +237,48 @@ h6 {}
 
 }
 
+
+
+
+/* ================================
+    PAGINATION NAV
+=================================== */
+
+.navigation {
+    padding: 4em 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    font-size: .9em;
+    color: #777;
+    border-top: 1px solid #efefef;
+    
+    .flex-display();
+    .flex-direction(row);
+    .clear-block;
+    
+    a {
+    }
+    
+    .previous {
+        width: 80px;
+    }
+
+    .current {
+        font-size: .85em;
+        
+        .flex(1);
+    }
+    
+    .next {
+        width: 80px;
+        text-align: right;
+    }
+    
+    
+    
+    
+}
 
 
 
