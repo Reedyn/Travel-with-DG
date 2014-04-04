@@ -1,0 +1,31 @@
+.display-flex {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.flex(@weight) {
+    -webkit-box-flex: @weight;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: @weight;         /* OLD - Firefox 19- */
+    -webkit-flex: @weight;          /* Chrome */
+    -ms-flex: @weight;              /* IE 10 */
+    flex: @weight;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.flex-order(@order) {
+    -webkit-box-ordinal-group: @order;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: @order;      /* OLD - Firefox 19- */
+    -ms-flex-order: @order;              /* TWEENER - IE 10 */
+    -webkit-order: @order;               /* NEW - Chrome */
+    order: @order;                       /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.flex-align (@alignment) {
+    -webkit-box-align: @alignment;
+    -webkit-align-items: flex-@alignment;
+    -moz-box-align: @alignment;
+    -ms-flex-align: @alignment;
+    align-items: flex-@alignment;
+}
