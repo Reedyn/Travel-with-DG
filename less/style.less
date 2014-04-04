@@ -4,6 +4,7 @@ body {
     font-family: "Open Sans";
     font-size: 16px;
     line-height: 22px;
+    color: #222;
 }
 
 /* ===================
@@ -26,8 +27,21 @@ a {
     HEADINGS
 ====================== */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.1em;
+}
 
-
+h1 {}
+h2 {font-size: 2.4em;}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
 
 
 
@@ -122,6 +136,7 @@ a {
 ================================ */
 
 .post {
+    margin-bottom: 6em;
 
     &:after {
         content: "";
@@ -130,13 +145,16 @@ a {
     }
 
     h2 {
+        font-weight: 600;
     }
 
     .content {
     }
 
     .byline {
-
+        clear: both;
+        margin-top: 2em;    
+        
         &:after {
             clear: both;
             content: "";
@@ -146,7 +164,7 @@ a {
         .author-image {
             float: left;
             margin-right: 10px;
-            font-size: 0;
+            line-height: 0;
 
             img {
                 width: 40px;
@@ -184,4 +202,3 @@ a {
 /* ================================
     FOOTER
 =================================== */
-#
