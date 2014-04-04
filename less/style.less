@@ -31,9 +31,8 @@ header.main-header {
     height: 400px;
     background: url("../img/karta.jpg") no-repeat center center;
     background-size: cover;
-
-    .flex-display;
 }
+
 
 main.main {
     .flex(1);
@@ -102,13 +101,30 @@ h6 {}
     }
 }
 
+/* ================================
+    HEADER
+=================================== */
 
+header.main-header {
+    margin: 0 auto;
+    width: 100%;
+    height: 400px;
+    background: url("../img/karta.jpg") no-repeat center center;
+    background-size: cover;
+
+    .flex-display;
+    .flex-direction(column);
+    .cover {
+        .flex(1);
+    }
+}
 
 /* ================================
     MAIN NAVIGATION MENU
 =================================== */
 
 .menu {
+    background: @color-primary;
     color: #000;
     text-transform: uppercase;
     font-weight: 600;
@@ -287,9 +303,7 @@ h6 {}
 =================================== */
 
 footer.main-footer {
-    width: 100%;
-    height: 100px;
-    background: red;
-
     .flex-display;
+    width: 100%;
+    background: @color-primary;
 }
