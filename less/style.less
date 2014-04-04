@@ -1,11 +1,33 @@
+@import "normalize";
 @import "mixins";
 
 @color-primary: #f5821f;
 
+html {
+    height: 100%;   
+}
+
 body {
+    .flex-display;
+    .flex-direction(column);
+    min-height: 100%;
     font-family: "Open Sans";
     font-size: 16px;
     line-height: 22px;
+}
+
+header.main-header {
+    margin: 0 auto;
+    width: 100%;
+    height: 400px;
+    background: url("../img/karta.jpg") no-repeat center center;
+    background-size: cover;
+
+    .flex-display;
+}
+
+main.main {
+    .flex(1);
 }
 
 /* ===================
@@ -186,3 +208,11 @@ a {
 /* ================================
     FOOTER
 =================================== */
+
+footer.main-footer {
+    width: 100%;
+    height: 100px;
+    background: red;
+
+    .flex-display;
+}
