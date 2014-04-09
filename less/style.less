@@ -15,6 +15,14 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #222;
+    min-width: 320px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .clear-block {
@@ -25,17 +33,23 @@ body {
     }
 }
 
-header.main-header {
-    margin: 0 auto;
-    width: 100%;
-    height: 400px;
-    background: url("../img/karta.jpg") no-repeat center center;
-    background-size: cover;
+a {
+    position: relative;
+}
+a:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background: yellow;
+    z-index: 200;
 }
 
 
 main.main {
     .flex(1);
+    padding: 7% 0;
 }
 
 /* ===================
@@ -69,6 +83,7 @@ h6 {
     color: #000;
     margin-bottom: 0.6em;
     font-weight: 700;
+    margin-top: 0;
     
     a,
     a:visited {
@@ -76,12 +91,12 @@ h6 {
     }
 }
 
-h1 {}
+h1 {font-size: 2.7em;}
 h2 {font-size: 2.4em;}
-h3 {}
-h4 {}
-h5 {}
-h6 {}
+h3 {font-size: 1.8em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1em;}
 
 
 
@@ -93,31 +108,30 @@ h6 {}
     max-width: 960px;
     width: 90%;
     margin: auto;
-
-    &:after {
-        content: "";
-        clear: both;
-        display: block;
+    
+    .clear-block;
+    
+    &.regular-padding {
+        padding: 40px 0;
     }
 }
+
+
 
 /* ================================
     HEADER
 =================================== */
 
 header.main-header {
-    margin: 0 auto;
-    width: 100%;
-    height: 400px;
-    background: url("../img/karta.jpg") no-repeat center center;
-    background-size: cover;
-
-    .flex-display;
-    .flex-direction(column);
     .cover {
-        .flex(1);
+        height: 400px;
+        background: url("../img/karta.jpg") no-repeat center center;
+        background-size: cover;
+        transition: height 1s;
     }
 }
+
+
 
 /* ================================
     MAIN NAVIGATION MENU
@@ -125,12 +139,24 @@ header.main-header {
 
 .menu {
     background: @color-primary;
-    color: #000;
+    color: #fff;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
 
+    * {
+        transition: all .5s;
+    }
+    
+    .main-menu-toggle {
+        display: none;
+        margin: 0 5%;
+        height: 44px;
+        width: 30px;
+        cursor: pointer;
+    }
+    
     .main-menu {
-        text-align: center;
+        .container;
 
         ul {
             margin: 0;
@@ -140,20 +166,24 @@ header.main-header {
             li {
                 display: inline-block;
 
+                &:first-child {
+                    margin-left: -15px;
+                }
+                
                 a {
                     display: block;
                     padding: 0 15px;
                     color: inherit;
                     text-decoration: none;
-                    line-height: 44px;
+                    line-height: 50px;
 
                     &:hover {
-                        background: rgba(0, 0, 0, 0.015);
+                        background: rgba(0, 0, 0, 0.2);
                     }
                 }
 
                 &.current-menu-item {
-                    color: #F8991C;
+                    color: rgba(255,255,255,0.7);
                 }
             }
         }
@@ -167,20 +197,31 @@ header.main-header {
     COLUMNS
 =================================== */
 
+#main {
+    .flex-display();
+    .flex-direction(row);
+    
+    max-width: 90%;
+    width: 960px;
+    margin: auto;
+}
+
 .column {
     float: left;
     margin-right: 5%;
+    
+    transition: all 1s;
     
     &:last-of-type {
         margin-right: 0;
     }
     
     &.main {
-        width: 60%;
+        .flex(1);
     }   
     
     &.sidebar {
-        width: 35%;
+        width: 300px;
     }
 }
 
@@ -199,11 +240,12 @@ header.main-header {
 
     .content {
         
-        & > img {
+        img.size-large {
             max-width: 110%;
+            max-width: 100%;
             height: auto;
             position: relative;
-            left: -5%;
+            //left: -5%;
             margin: 1.5em 0 1em 0;
         }
         
@@ -273,26 +315,21 @@ header.main-header {
     .flex-direction(row);
     .clear-block;
     
-    a {
-    }
     
-    .previous {
-        width: 80px;
-    }
-
     .current {
         font-size: .85em;
         
         .flex(1);
     }
     
-    .next {
+    .next,
+    .previous {
         width: 80px;
-        text-align: right;
     }
     
-    
-    
+    .next {
+        text-align: right;
+    }
     
 }
 
@@ -306,4 +343,118 @@ footer.main-footer {
     .flex-display;
     width: 100%;
     background: @color-primary;
+    padding: 7% 0;
+    color: #fff;
+}
+
+
+
+
+@media (max-width: 768px) {
+ 
+    header.main-header {
+        .cover {
+            height: 280px;
+        }
+    }
+    
+    #main { 
+        display: block;
+    }
+    
+    .column {
+        margin-right: 0;
+        margin-bottom: 50px;
+        width: auto;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    .post {
+        .content {
+            img.size-large {
+                max-width: 111.2%;
+                margin-left: -5.6%;
+            }
+        }
+    }
+    
+    .navigation {
+        padding: 3em 0;   
+        border-bottom: 1px solid #efefef;
+    }
+    
+}
+
+@media (max-width: 600px) {
+ 
+    header.main-header {
+        .cover {
+            height: 180px;
+        }
+    }
+
+}
+
+
+@media (max-width: 500px) {
+ 
+    header.main-header {
+        .cover {
+            height: 100px;
+        }
+    }
+    
+    .menu {
+        padding-top: 8px;
+        
+        .main-menu-toggle {
+            display: block;
+            padding-bottom: 8px;
+        }
+        
+        .main-menu {
+            max-height: 0;
+            width: auto;
+            overflow: hidden;
+            
+            ul {
+                li {
+                    
+                    border-top: 1px solid rgba(255,255,255,0.2);
+                    
+                    &:first-child {
+                        margin-left: 0;
+                        border-top: 0;
+                    }
+                    
+                    a {
+                        padding: 0 5%;
+                    }
+                    
+                    display: block;
+                }
+            }
+            
+            &.active {
+                max-height: 600px;
+                padding: 20px 0;
+            }
+            
+        }
+    }
+    
+    
+    .navigation {
+        
+        padding: 1em 0;
+        
+        .next,
+        .previous {
+            width: auto;
+        }
+    }
+    
 }
