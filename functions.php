@@ -2,8 +2,6 @@
 
 add_theme_support( 'post-thumbnails' );
 
-
-
 // Register custom post type for photo gallery
 function photo_post_type() {
 

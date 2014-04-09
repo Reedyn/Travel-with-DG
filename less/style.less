@@ -56,13 +56,16 @@ main.main {
     ANCHOR TAGS
 ====================== */
 
-a,
-a:visited {
+a {
     color: @color-primary;
     text-decoration: none;
-    
+    &:visited {
+        color: @color-primary;
+        text-decoration: none;
+    }
     &:hover {
-        text-decoration: underline;
+        color: @color-primary;
+        text-decoration: underline;  
     }
 }
 
@@ -86,8 +89,10 @@ h6 {
     margin-top: 0;
     
     a,
-    a:visited {
-        color: inherit;
+    a:visited,
+    a:hover,
+    a:visited:hover{
+        color: #000 !important;
     }
 }
 
@@ -130,15 +135,25 @@ header.main-header {
         background-size: cover;
         transition: height 1s;
         .logotype {
-            display: block;
+            .flex-display();
             width: 90%;
             max-width: 960px;
             margin: auto;
+            a {
+                .flex(1);
+            }
             img.main-logo {
                 width: 50%;
                 max-width: 400px;
                 height: auto;
                 margin: auto;
+            }
+            .main-menu-toggle {
+                display: none;
+                margin: auto;
+                height: 44px;
+                width: 44px;
+                cursor: pointer;
             }
         }
     }
@@ -159,15 +174,7 @@ header.main-header {
     * {
         transition: all .5s;
     }
-    
-    .main-menu-toggle {
-        display: none;
-        margin: 0 5%;
-        height: 44px;
-        width: 30px;
-        cursor: pointer;
-    }
-    
+
     .main-menu {
         .container;
 
@@ -194,8 +201,7 @@ header.main-header {
                         background: rgba(0, 0, 0, 0.2);
                     }
                 }
-
-                &.current-menu-item {
+                &.current-menu-item, &.current-page-ancestor{
                     color: rgba(255,255,255,0.7);
                 }
             }
@@ -473,7 +479,9 @@ footer.main-footer {
 
 
 @media (max-width: 500px) {
- 
+     .main-menu-toggle {
+            display: block !important;
+        }
     header.main-header {
         .cover {
             height: 100px;
@@ -482,11 +490,6 @@ footer.main-footer {
     
     .menu {
         padding-top: 8px;
-        
-        .main-menu-toggle {
-            display: block;
-            padding-bottom: 8px;
-        }
         
         .main-menu {
             max-height: 0;
