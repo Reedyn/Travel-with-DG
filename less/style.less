@@ -124,10 +124,23 @@ h6 {font-size: 1em;}
 
 header.main-header {
     .cover {
+        .flex-display;
         height: 400px;
         background: url("../img/karta.jpg") no-repeat center center;
         background-size: cover;
         transition: height 1s;
+        .logotype {
+            display: block;
+            width: 90%;
+            max-width: 960px;
+            margin: auto;
+            img.main-logo {
+                width: 50%;
+                max-width: 400px;
+                height: auto;
+                margin: auto;
+            }
+        }
     }
 }
 
