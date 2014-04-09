@@ -226,14 +226,73 @@ header.main-header {
 }
 
 
+/* ===================
+    GALLERY
+====================== */
 
+.gallery {
+    padding: 2px;
+    .gallery-photo {
+    }
+}
+
+/* ===================
+    PHOTO
+====================== */
+
+.photo {
+    img {
+        width: 100%;
+    }
+}
+
+.photo-byline {
+    clear: both;
+    margin-top: 2em;    
+
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .author-image {
+        float: left;
+        margin-right: 10px;
+        line-height: 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .post-info {
+        line-height: 18px;
+        padding: 2px 0;
+
+
+        .author-name {
+            font-weight: 700;
+            font-size: .9em;
+        }
+
+        .date {
+            color: #888;
+            font-size: .8em;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}
 
 
 /* ================================
     BLOG POST
 ================================ */
 
-.post {
+.post{
     margin-bottom: 6em;
 
     .clear-block;
