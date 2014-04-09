@@ -49,7 +49,7 @@ a:after {
 
 main.main {
     .flex(1);
-    padding: 7% 0;
+    padding: 2em 0;
 }
 
 /* ===================
@@ -226,14 +226,75 @@ header.main-header {
 }
 
 
+/* ===================
+    GALLERY
+====================== */
 
+.gallery {
+    padding: 2px;
+    .gallery-photo {
+    }
+}
+
+/* ===================
+    PHOTO
+====================== */
+
+.photo {
+    img {
+        width: 111.2%;
+        max-width: 111.2%;
+        margin-left: -5.6%;
+    }
+}
+
+.photo-byline {
+    clear: both;
+    margin-top: 2em;    
+
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .author-image {
+        float: left;
+        margin-right: 10px;
+        line-height: 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .post-info {
+        line-height: 18px;
+        padding: 2px 0;
+
+
+        .author-name {
+            font-weight: 700;
+            font-size: .9em;
+        }
+
+        .date {
+            color: #888;
+            font-size: .8em;
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+}
 
 
 /* ================================
     BLOG POST
 ================================ */
 
-.post {
+.post{
     margin-bottom: 6em;
 
     .clear-block;
@@ -241,7 +302,6 @@ header.main-header {
     .content {
         
         img.size-large {
-            max-width: 110%;
             max-width: 100%;
             height: auto;
             position: relative;
@@ -343,7 +403,7 @@ footer.main-footer {
     .flex-display;
     width: 100%;
     background: @color-primary;
-    padding: 7% 0;
+    padding: 2em 0;
     color: #fff;
 }
 
